@@ -1,4 +1,4 @@
-/*Gabi Shell */
+/*Gabi Shell*/
 #include <stdio.h>
 #include <stdlib.h>
 #define gash_RL_BUFFSIZE 1024
@@ -33,7 +33,7 @@ void gash_loop(void)
 // Executor da shell 
 void gash_execute()
 {
-
+  
 }
 
 char gash_read_line(void)

@@ -3,13 +3,14 @@
  A implementação da shell **`gash`** é dividida em três partes: **Parser** , **Executor** e **Subsistema da Shell**
 
 
- ## Parser:
+ ## Parser
 
  O Parser é o componente de software que faz a leitura da linha de comandos, por exemplo "pwd" e coloca em uma estrutura de dados chamada Command Table que armazena os comandos que serão executados.
 
+----
 
 
-## Executor:
+## Executor
 
  O Executor vai pegar a Command Table criada pelo parser e, para todo SimpleCommand no array será criado um novo processo. Se necessário, também criará pipes para comunicar o output de um dos processos para o input do próximo. Adicionalmente, irá redirecionar o standard input, standard output, e standard error se houver qualquer redirecionamento. 
 
@@ -18,6 +19,8 @@
  `A | B | C | D > outfile < infile  > errfile`
 
 Se existe um redirecionamento para errfile como ">& errfile" o stderr de todos os processos de SimpleCommand serão redirecionados para o errfile.
+
+----
 
 ## Shell Subsystems
 
@@ -35,19 +38,22 @@ Para implementar o parser foram utilizadas duas ferramentas UNIX: Lex e Yacc. Ta
 
 <img width="728" height="410" alt="image" src="https://github.com/user-attachments/assets/da3dec1f-370b-4a78-818f-c31a38f90371" />
 
-Os tokens são descritos em um arquivo shell.l utilizando de expressões regulares. O arquivo shell.l é processado com o programa **`lex`** que gera o Lexical Analyzer. <--TO-DO-->
+Os tokens são descritos em um arquivo shell.l utilizando de expressões regulares. O arquivo shell.l é processado com o programa **`lex`** que gera o Lexical Analyzer. 
 
----  
+As "grammar rules" utilizadas pelo parser são descritas em um arquivo **`shell.y`** usando "syntax expressions" explicadas em breve. O arquivo **`shell.y`** é processado com o programa **yacc** que gera um programa **`parser`**. Ambas as ferramentas utilizadas, lex e yacc, possuem "standard commands" no UNIX. Tais comandos podem ser utilizados para implementar compiladores de alta complexidade. Para a shell gash, foi feito o uso de um subset de ambas ferramentas para construir a "command table" necessária para a shell.
+
+
+----  
 
 ## Shell Grammar
-As regras de gramática shell são **SimpleCommands** e **Pipelines**.
+As regras de gramática shell são **SimpleCommand** e **Pipeline**.
 
 ### SimpleCommand
 
 SimpleCommand é uma sequência de parâmetros opcionais seguidos de uma palavra blank-separeted com a opção de redirecionamento intercalado. 
 
 - A primeira palavra é o comando a ser executado, e as palavras seguintes, se existirem, são argumentos para o comando. Se o nome de um comando for fornecido, as atribuições de parâmetros modificam o ambiente do comando quando ele é executado. 
-- O valor de um simples comando é o seu "exit status", ou 128 + o signal number se o terminar com um signal. Por exemplo: `echo foo` é um simples comando com argumentos.
+- O valor de um simples comando é o seu "exit status", ou 128 + o signal number se terminar com um signal. Por exemplo: `echo foo` é um simples comando com argumento.
 
 
 ### Pipelines
