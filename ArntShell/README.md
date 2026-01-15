@@ -1,6 +1,6 @@
 # Arnt Shell
 
- A implementação da shell é dividida em três partes: Parser, Executor e Subsistema da Shell
+ A implementação da shell é dividida em três partes: **Parser** , **Executor** e **Subsistema da Shell**
 
 
 
@@ -33,4 +33,14 @@ Outros subsistemas que completam a shell são:
 
 Para implementar o parser foram utilizadas duas ferramentas UNIX: Lex e Yacc. Tais ferramentas são usadas na implementação de compiladores, interpretadores e preprocessadores. Um parser é dividido em duas partes: um Lexical Analyzer ou Lexer e um Parser que processa os tokens de acordo com a gramática e constrói a Command Table.
 
+# Figura Processo shell
 
+Os tokens são descritos em um arquivo shell.l utilizando de expressões regulares. O arquivo shell.l é processado com o programa **`lex`** que gera o Lexical Analyzer.
+
+As regras de gramática shell são **SimpleCommands** e **pipelines**.
+
+- SimpleCommand é uma sequência de parâmetros opcionais seguidos de uma palavra blank-separeted com a opção de redirecionamento intercalado. 
+
+- A primeira palavra é o comando a ser executado, e as palavras seguintes, se existirem, são argumentos para o comando. Se o nome de um comando for fornecido, as atribuições de parâmetros modificam o ambiente do comando quando ele é executado. 
+
+- O valor de um simples comando é o seu "exit status", ou 128 + o signal number se o terminar com um signal. Por exemplo: `echo foo`
