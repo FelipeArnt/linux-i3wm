@@ -33,7 +33,7 @@ Outros subsistemas que completam a shell são:
 
 Para implementar o parser foram utilizadas duas ferramentas UNIX: Lex e Yacc. Tais ferramentas são usadas na implementação de compiladores, interpretadores e preprocessadores. Um parser é dividido em duas partes: um Lexical Analyzer ou Lexer e um Parser que processa os tokens de acordo com a gramática e constrói a Command Table.
 
-# Figura Processo shell
+# --TO-DO-- Figura Processo shell
 
 Os tokens são descritos em um arquivo shell.l utilizando de expressões regulares. O arquivo shell.l é processado com o programa **`lex`** que gera o Lexical Analyzer.
 
