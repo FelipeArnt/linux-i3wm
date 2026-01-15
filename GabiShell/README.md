@@ -1,6 +1,6 @@
 # gash - Gabi shell 
 
- A implementação da gash é dividida em três partes: **Parser** , **Executor** e **Subsistema da Shell**
+ A implementação da shell **`gash`** é dividida em três partes: **Parser** , **Executor** e **Subsistema da Shell**
 
 
  ## Parser:
