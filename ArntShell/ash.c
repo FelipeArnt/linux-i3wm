@@ -30,7 +30,7 @@ void ash_loop(void)
   }
 }
 
-// 
+// Executor da shell 
 void ash_execute()
 {
 
