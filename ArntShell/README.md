@@ -1,7 +1,6 @@
-# Arnt Shell
+# gash - Gabi shell 
 
- A implementação da shell é dividida em três partes: **Parser** , **Executor** e **Subsistema da Shell**
-
+ A implementação da gash é dividida em três partes: **Parser** , **Executor** e **Subsistema da Shell**
 
 
  ## Parser:

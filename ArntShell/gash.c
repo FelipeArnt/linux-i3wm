@@ -1,17 +1,17 @@
-/*Arnt Shell */
+/*Gabi Shell */
 #include <stdio.h>
 #include <stdlib.h>
-#define ASH_RL_BUFFSIZE 1024
-/*---ash---*/
+#define gash_RL_BUFFSIZE 1024
+/*---Gash---*/
 int main(int argc, char **argv)
 {
-  ash_loop();
+  gash_loop();
 
   return EXIT_SUCCESS;
 }
 
 // Loop da shell 
-void ash_loop(void)
+void gash_loop(void)
 {
   char *line;
   char **args;
@@ -20,9 +20,9 @@ void ash_loop(void)
   do {
     printf("> ");
 
-    line = ash_read_line();
-    args = ash_split_line();
-    status = ash_execute();
+    line = gash_read_line();
+    args = gash_split_line();
+    status = gash_execute();
 
     free(line);
     free(args);
@@ -31,20 +31,20 @@ void ash_loop(void)
 }
 
 // Executor da shell 
-void ash_execute()
+void gash_execute()
 {
 
 }
 
-char ash_read_line(void)
+char gash_read_line(void)
 {
-  int bufsize = ASH_RL_BUFFSIZE;
+  int bufsize = gash_RL_BUFFSIZE;
   int position = 0;
   char *buffer = malloc(sizeof(char) * bufsize);
   int c;
 
   if (!buffer){
-    fprint(stderr, "ash: erro ao alocar\n");
+    fprint(stderr, "[gash]: erro ao alocar\n");
     exit(EXIT_FAILURE);
   }
 
@@ -61,16 +61,13 @@ char ash_read_line(void)
     position++;
 
     if (position >= bufsize){
-      bufsize = ASH_RL_BUFFSIZE;
+      bufsize = gash_RL_BUFFSIZE;
       buffer = realloc(buffer, bufsize);
       if (!buffer)
       {
-        fprintf(stderr, "ash: erro ao alocar\n");
+        fprintf(stderr, "[gash]: erro ao alocar\n");
         exit(EXIT_FAILURE);
       }
     }
-
-
   }
-
 }
