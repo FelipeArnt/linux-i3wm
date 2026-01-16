@@ -17,9 +17,13 @@
 #define RST         "\033[0m"
 
 #define p(...) printf(__VA_ARGS__);
+#define DEL " \n\t \v\f\r "
+
 
 void Getcwd(char *, size_t);
-
+void exibebanner(void);
+void *Malloc(size_t);
+void *Realloc(void *ptr, size_t size)
 #endif
 /*---Gash---*/
 
