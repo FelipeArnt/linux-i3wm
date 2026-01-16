@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-# Script de instalação de ferramentas para laboratório de metrologia legal
+#@Author: FelipeArnt - LABELO / VSW
+# Script de instalação de ferramentas para ensaios funcionais de metrologia legal e segurança cibernética.
 
 set -e
 
