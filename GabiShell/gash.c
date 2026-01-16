@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #define gash_RL_BUFFSIZE 1024
 /*---Gash---*/
+
 int main(int argc, char **argv)
 {
   gash_loop();
@@ -33,8 +34,44 @@ void gash_loop(void)
 // Executor da shell 
 void gash_execute()
 {
-  
+//<!--TOOD--!> 
 }
+
+#define GASH_TOK_BUFFSIZE 64
+#define GASH_TOK_DELIM "\t\r\n\a"
+char **gash_split_line(char *line)
+{
+  int bufzise = GASH_TOK_BUFFSIZE, position = 0;
+  char **tokens = malloc(bufsize * sizeof(char));
+  char *token;
+
+
+  if (!tokens)
+  {
+    fprintf(stderr, "[gash]: Erro ao alocar\n");
+    exit(EXIT_FAILURE);
+  }
+
+  token = strtok(line, GASH_TOK_DELIM);
+  while (token != NULL){
+    tokens[position] = token;
+    position++;
+
+    if (position >= bufsize){
+      bufsize += GASH_TOK_BUFFSIZE;
+      tokens = realloc(tokens, bufsize * sizeof(char*));
+      if (!tokens) {
+        fprintf(stderr, "[gash]: Erro ao alocar\n");
+        exit(EXIT_FAILURE);
+      }
+    }
+
+    token = strtok(NULL, GASH_TOK_DELIM);
+  }
+  tokens[position] = NULL;
+  return tokens;
+}
+
 
 char gash_read_line(void)
 {
@@ -71,3 +108,4 @@ char gash_read_line(void)
     }
   }
 }
+
