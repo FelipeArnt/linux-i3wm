@@ -60,14 +60,19 @@ int main(int ac, char **av)
 
     exibebanner();
 
-    while (0xCE77) {
-        line = gash_read_line();
+    while (line = gash_read_line()) {
         if (!line)
             break;
-
-        /* args = gash_split_line(line);  // ainda não usado */
-        free(line);
+    //args = gash_split_line();
+    pid_t pid = fork();
+    if (pid == 0) {
+      execvp(args[0], args);
+      perror("execvp falhou!");
+      exit(EXIT_FAILURE);
+    } else {
+      waitpid(pid, &status, 0);    
     }
-
+    args = gash_split_line();
+    free(line);
     return EXIT_SUCCESS;
 }
