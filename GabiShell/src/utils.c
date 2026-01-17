@@ -42,11 +42,11 @@ void *Realloc(void *ptr, size_t size)
 
 void exibebanner(void)
 {
-    p(G "\n<-[gash]->[GABI-SHELL]-[INICIADA]<-[gash]->\n\n");
+//    p(G "\n<-[gash]->[GABI-SHELL]-[INICIADA]<-[gash]->\n\n");
     p(G "\n<-[gash]-> [By][FelipeArnt] <-[gash]->\n\n");
-    p(G "\n<-[gash]-> [ READ-EVALUATE ] <-[gash]->\n\n");
-    p(G "\n<-[gash]-> [ PARSE-PRINT ] <-[gash]->\n\n");
-    p(G "\n<-[gash]-> [ EXECUTE-LOOP ] <-[gash]->\n\n");
+//    p(G "\n<-[gash]-> [ READ-EVALUATE ] <-[gash]->\n\n");
+//   p(G "\n<-[gash]-> [ PARSE-PRINT ] <-[gash]->\n\n");
+//    p(G "\n<-[gash]-> [ EXECUTE-LOOP ] <-[gash]->\n\n");
 
     p(
         " /$$$$$$            /$$       /$$                       /$$                 /$$ /$$      \n"
